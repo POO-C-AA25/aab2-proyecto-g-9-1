@@ -27,11 +27,11 @@ public class Sistema {
     public void crearTablaPostulantesCSV(String nombre, List<Postulante> postulantes, List<Carrera> carreras) {
         try(FileWriter archivo = new FileWriter(new File(nombre))) {
                 for(Postulante postulante : postulantes) {
-                    archivo.write(postulante.nombre);
-                    archivo.write(postulante.cedula);
-                    archivo.write(postulante.carreraDeseada.nombre);
-                    archivo.write((int)postulante.puntajeExamen);
-                    archivo.write(postulante.tipoMerito);
+                    archivo.write(postulante.nombre + "\n");
+                    archivo.write(postulante.cedula + "\n");
+                    archivo.write(postulante.carreraDeseada.nombre + "\n");
+                    archivo.write((int)postulante.puntajeExamen + "\n");
+                    archivo.write(postulante.tipoMerito + "\n");
                 }
                 archivo.close();
         }
