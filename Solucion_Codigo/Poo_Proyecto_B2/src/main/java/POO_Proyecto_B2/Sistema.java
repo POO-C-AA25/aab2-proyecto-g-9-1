@@ -2,6 +2,8 @@ package POO_Proyecto_B2;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -20,6 +22,23 @@ public class Sistema {
             default:
                 return null;
         }
+    }
+ 
+    public void crearTablaPostulantesCSV(String nombre, List<Postulante> postulantes, List<Carrera> carreras) {
+        try(FileWriter archivo = new FileWriter(new File(nombre))) {
+                for(Postulante postulante : postulantes) {
+                    archivo.write(postulante.nombre);
+                    archivo.write(postulante.cedula);
+                    archivo.write(postulante.carreraDeseada.nombre);
+                    archivo.write((int)postulante.puntajeExamen);
+                    archivo.write(postulante.tipoMerito);
+                }
+                archivo.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
 
     public void cargarPostulantesDesdeCSV(String ruta, List<Postulante> postulantes, List<Carrera> carreras) {
