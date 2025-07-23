@@ -13,10 +13,6 @@ public abstract class Carrera {
     List<Postulante> postulantes = new ArrayList<>();
     List<Postulante> admitidos = new ArrayList<>();
 
-    public boolean mitadDeCupos() {
-        return admitidos.size() >= (cupos / 2);
-    }
-
     public Carrera(String nombre, String tipoAdmision, double puntajeMinimo, int cupos) {
         this.nombre = nombre;
         this.tipoAdmision = tipoAdmision;
