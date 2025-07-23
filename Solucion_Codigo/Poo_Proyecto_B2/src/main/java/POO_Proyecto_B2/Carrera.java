@@ -13,10 +13,6 @@ public abstract class Carrera {
     List<Postulante> postulantes = new ArrayList<>();
     List<Postulante> admitidos = new ArrayList<>();
 
-    public void validarAdmision() {
-        
-    }
-
     public boolean mitadDeCupos() {
         return admitidos.size() >= (cupos / 2);
     }
