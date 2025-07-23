@@ -24,16 +24,15 @@ public class Ejecutor_SistemaAdmisiones {
             String cedula = in.next();
             Carrera carreraDeseada;
             System.out.println("ingrese la carrera a la que desea ingresar: ");
-            if ("Medicina".equals(in.next())) {
+            if ("Medicina".equalsIgnoreCase(in.next())) {
                 carreraDeseada = new Medicina();
             }
             else 
-                if("Programacion".equals(in.next())) {
+                if("Programacion".equalsIgnoreCase(in.next())) {
                 carreraDeseada = new Programacion();
                 }
                 else
                 carreraDeseada = new Telecomunicaciones();
-                
             System.out.println("Ingrese su puntaje del examen: ");
             double puntajeExamen = in.nextDouble();
             System.out.println("Ingrese su tipo de merito: ");
@@ -41,9 +40,22 @@ public class Ejecutor_SistemaAdmisiones {
             Postulante e = new Postulante(nombre, cedula, carreraDeseada, puntajeExamen, tipoMerito);
             postulantes.add(e);
         }
-        sistema.crearTablaPostulantesCSV("postulantes.csv", postulantes, carreras);
         
-        sistema.cargarPostulantesDesdeCSV("postulantes.csv", postulantes, carreras);
+        System.out.println("--Menu--");
+        System.out.println("[1] Crear archivo postulantes.csv y enviar informacion");
+        System.out.println("[2] Cargar desde archivo");
+        System.out.println("[0] Finalizar");
+        int sel = in.nextInt();
+        while (sel != 0) {
+            switch (sel) {
+                case 1 -> {
+                    sistema.crearTablaPostulantesCSV("postulantes.csv", postulantes, carreras);
+
+                }
+
+                case 2 -> sistema.cargarPostulantesDesdeCSV("postulantes.csv", postulantes, carreras);
+            }
+        }
 
         for (Carrera carrera : carreras) {
             carrera.procesarAdmisiones();
