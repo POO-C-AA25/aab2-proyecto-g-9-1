@@ -8,6 +8,10 @@ public class Telecomunicaciones extends Carrera {
 
     @Override
     public void procesarAdmisiones() {
-        validarAdmision();
-    }
+        for (int i = 0; i < postulantes.size(); i++)
+                if (postulantes.get(i).puntTot > this.puntajeMinimo) {
+                    admitidos.add(postulantes.get(i));
+                    admitidos.get(i).requiereNivelacion();
+                            }
+        } 
 }

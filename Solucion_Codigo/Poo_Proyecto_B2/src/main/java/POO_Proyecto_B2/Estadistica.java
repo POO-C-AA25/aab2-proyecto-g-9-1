@@ -20,13 +20,13 @@ public class Estadistica {
     }
 
     public String mostrarCarrerasMenorMitad() {
-        String salida = null;
+        String salida = "";
         for (Carrera c : carrerasBajoCupo)
              salida += ("- " + c.nombre);
         return salida;
     }
     public String mostrarCarrerasRechazaron() {
-        String salida = null; 
+        String salida = ""; 
         for (Carrera c : carrerasRechazadas) 
             salida += ("- " + c.nombre);
         return salida;

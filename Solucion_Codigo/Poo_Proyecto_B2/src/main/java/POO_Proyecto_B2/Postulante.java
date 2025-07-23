@@ -7,6 +7,9 @@ public class Postulante {
     Carrera carreraDeseada;
     double puntajeExamen;
     String tipoMerito;
+    double merito;
+    double puntTot;
+    boolean niv;
 
     public Postulante(String nombre, String cedula, Carrera carreraDeseada, double puntajeExamen, String tipoMerito) {
         this.nombre = nombre;
@@ -16,7 +19,7 @@ public class Postulante {
         this.tipoMerito = tipoMerito;
     }
 
-    public double calcularMeritos() {
+    public void calcularMeritos() {
         double adicional = 0;
         if (tipoMerito.equalsIgnoreCase("Abanderado")) {
             adicional += 5;
@@ -25,14 +28,14 @@ public class Postulante {
         } else if (tipoMerito.equalsIgnoreCase("Capacidad especial")) {
             adicional += 3;
         }
-        return adicional;
+        this.merito += adicional;
     }
 
-    public double calcularPuntajeTotal() {
-        return puntajeExamen + calcularMeritos();
+    public void calcularPuntajeTotal() {
+        this.puntTot = puntajeExamen + this.merito;
     }
 
-    public boolean requiereNivelacion() {
-        return carreraDeseada.tipoAdmision.equalsIgnoreCase("DIAGNOSTICO") && puntajeExamen < carreraDeseada.puntajeNivelacion;
+    public void requiereNivelacion() {
+        this.niv = carreraDeseada.tipoAdmision.equalsIgnoreCase("DIAGNOSTICO") && puntajeExamen < carreraDeseada.puntajeNivelacion;
     }
 }
