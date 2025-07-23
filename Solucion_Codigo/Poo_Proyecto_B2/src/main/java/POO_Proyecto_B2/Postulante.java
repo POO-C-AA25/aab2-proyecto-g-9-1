@@ -33,6 +33,6 @@ public class Postulante {
     }
 
     public boolean requiereNivelacion() {
-        return carreraDeseada.tipoAdmision.equals(TipoAdmision.DIAGNOSTICO) && puntajeExamen < carreraDeseada.puntajeNivelacion;
+        return carreraDeseada.tipoAdmision.equalsIgnoreCase(DIAGNOSTICO) && puntajeExamen < carreraDeseada.puntajeNivelacion;
     }
 }

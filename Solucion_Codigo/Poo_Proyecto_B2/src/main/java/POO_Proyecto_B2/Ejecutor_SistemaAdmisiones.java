@@ -38,6 +38,9 @@ public class Ejecutor_SistemaAdmisiones {
             System.out.println("Ingrese su tipo de merito: ");
             String tipoMerito = in.next();
             Postulante e = new Postulante(nombre, cedula, carreraDeseada, puntajeExamen, tipoMerito);
+            e.calcularMeritos();
+            e.calcularPuntajeTotal();
+            e.requiereNivelacion();
             postulantes.add(e);
         }
         
@@ -62,7 +65,11 @@ public class Ejecutor_SistemaAdmisiones {
         }
 
         Estadistica estadistica = new Estadistica();
+
         estadistica.analizar(carreras);
-        estadistica.mostrarEstadisticas();
+        System.out.println("Carreras con menos del 50% de cupos cubiertos:");
+        System.out.println(estadistica.mostrarCarrerasMenorMitad());
+        System.out.println("\nCarreras que rechazaron postulantes por falta de cupos:");
+        System.out.println(estadistica.mostrarCarrerasRechazaron());
     }
 }

@@ -13,6 +13,18 @@ public abstract class Carrera {
     List<Postulante> postulantes = new ArrayList<>();
     List<Postulante> admitidos = new ArrayList<>();
 
+    public void validarAdmision() {
+        if(tipoAdmision.equalsIgnoreCase("ADMISION"))
+            postulantes.removeIf(p -> p.calcularPuntajeTotal() < puntajeMinimo);
+        postulantes.sort((p1, p2) -> Double.compare(p2.calcularPuntajeTotal(), p1.calcularPuntajeTotal()))
+        for (int i = 0; i < Math.min(cupos, postulantes.size()); i++)
+            admitidos.add(postulantes.get(i));
+    }
+
+    public boolean mitadDeCupos() {
+        return admitidos.size() >= (cupos / 2);
+    }
+
     public Carrera(String nombre, String tipoAdmision, double puntajeMinimo, int cupos) {
         this.nombre = nombre;
         this.tipoAdmision = tipoAdmision;
