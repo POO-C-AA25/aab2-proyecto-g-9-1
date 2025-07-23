@@ -10,19 +10,6 @@ import java.util.List;
 import java.util.UUID;
 
 public class Sistema {
-
-    public Carrera buscarCarreraPorNombre(String nombre) {
-        switch (nombre) {
-            case "Programación":
-                return new Programacion();
-            case "Medicina":
-                return new Medicina();
-            case "Telecomunicaciones":
-                return new Telecomunicaciones();
-            default:
-                return null;
-        }
-    }
  
     public void crearTablaPostulantesCSV(String nombre, List<Postulante> postulantes, List<Carrera> carreras) {
         try(FileWriter archivo = new FileWriter(new File(nombre))) {

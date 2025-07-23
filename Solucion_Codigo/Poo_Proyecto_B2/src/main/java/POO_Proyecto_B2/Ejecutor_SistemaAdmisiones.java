@@ -50,7 +50,6 @@ public class Ejecutor_SistemaAdmisiones {
             switch (sel) {
                 case 1 -> {
                     sistema.crearTablaPostulantesCSV("postulantes.csv", postulantes, carreras);
-
                 }
 
                 case 2 -> sistema.cargarPostulantesDesdeCSV("postulantes.csv", postulantes, carreras);
