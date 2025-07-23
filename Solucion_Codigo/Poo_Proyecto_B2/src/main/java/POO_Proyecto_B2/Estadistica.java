@@ -25,7 +25,7 @@ public class Estadistica {
              salida += ("- " + c.nombre);
         return salida;
     }
-    public String mostrarCarrerasRechazaron {
+    public String mostrarCarrerasRechazaron() {
         String salida = null; 
         for (Carrera c : carrerasRechazadas) 
             salida += ("- " + c.nombre);

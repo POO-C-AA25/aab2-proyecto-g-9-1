@@ -53,7 +53,6 @@ public class Sistema {
                 if (carrera != null) {
                     Postulante postulante = new Postulante(nombre, cedula, carrera, puntajeExamen, tipoMerito);
                     postulantes.add(postulante);
-                    carrera.agregarPostulante(postulante);
                 }
             }
         } catch (IOException e) {

@@ -16,7 +16,7 @@ public abstract class Carrera {
     public void validarAdmision() {
         if(tipoAdmision.equalsIgnoreCase("ADMISION"))
             postulantes.removeIf(p -> p.calcularPuntajeTotal() < puntajeMinimo);
-        postulantes.sort((p1, p2) -> Double.compare(p2.calcularPuntajeTotal(), p1.calcularPuntajeTotal()))
+        postulantes.sort((p1, p2) -> Double.compare(p2.calcularPuntajeTotal(), p1.calcularPuntajeTotal()));
         for (int i = 0; i < Math.min(cupos, postulantes.size()); i++)
             admitidos.add(postulantes.get(i));
     }
